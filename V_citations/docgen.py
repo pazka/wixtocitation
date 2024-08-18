@@ -61,12 +61,30 @@ def prepare_run(p, placeholder_key, possible_value):
 
 
 def doc_gen(datafile) -> str:
-    if ".csv" not in datafile:
-        raise Exception('Only CSV accepted')
-
     res = Document()
-    df: DataFrame = pd.read_csv(datafile,
-                                sep=',', keep_default_na=False)
+
+    # test if file exist
+    try:
+        open(datafile)
+    except FileNotFoundError:
+        raise FileNotFoundError("The file could not be opened")
+
+    print("Will read csv file !")
+    df: DataFrame = pd.read_csv(datafile, sep=',', keep_default_na=False)
+    print("Has read csv file !")
+    
+    print("file read : ", df.columns)
+    print("file read : ", df.head())
+    print("file nb lines : ", len(df))
+
+    ## check that all colmuns are present in file 
+    errors = []
+    for key in replacements.values():
+        if key not in df.columns:
+            errors.append(key)
+    
+    if len(errors) > 0:
+        raise KeyError(f"Keys {errors} not found in csv file")
 
     for index, row in df.iterrows():
         p = res.add_paragraph("")

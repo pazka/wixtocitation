@@ -1,13 +1,14 @@
-from flask import Flask, request, make_response, send_file,send_from_directory
+from flask import Flask, request, make_response, send_file, send_from_directory
 from werkzeug.utils import secure_filename
 from docgen import doc_gen
+import traceback
+
 import os
 
 app = Flask(__name__)
 
-#static in static folder
+# static in static folder
 app.static_folder = 'static'
-
 
 
 @app.route('/upload', methods=['POST'])
@@ -23,7 +24,7 @@ def upload_file():
         filename = doc_gen('./export.csv')
     except Exception as e:
         print(e)
-        return "server error occurred, contact alex \n "+ str(e), 500
+        return make_response(f"Error: {str(e)}", 500)
 
     try:
         filename = secure_filename(filename)  # Sanitize the filename
@@ -41,6 +42,11 @@ def upload_file():
 @app.route("/<path:path>")
 def send_report(path):
     return send_from_directory('static', path)
+
+
+@app.route("/")
+def send_index():
+    return send_from_directory('static', 'index.html')
 
 
 PORT = os.environ.get("PORT") or 6451
