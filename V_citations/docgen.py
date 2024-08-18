@@ -77,6 +77,8 @@ def doc_gen(datafile) -> str:
     print("file read : ", df.head())
     print("file nb lines : ", len(df))
 
+    df.sort_values(by=['collection'], inplace=True)
+
     ## check that all colmuns are present in file 
     errors = []
     for key in replacements.values():
