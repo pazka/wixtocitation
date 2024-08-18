@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  app:
+    restart: unless-stopped
+    image: pazka/wixtocitations:latest
+    ports:
+      - "6451:6451"
+    environment:
+      - PORT=6451
