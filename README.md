@@ -1,3 +1,3 @@
-take a raw wix export file
+# usage
 
-generate a word containing all citations
+<https://wixcitations.hosh.it>
