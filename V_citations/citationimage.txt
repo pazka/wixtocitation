@@ -1,0 +1,4 @@
+Nom, prénom de l’artiste (dates), Titre de l’oeuvre, date de l’oeuvre, matériaux (medium, support, technique utilisée) dimensions (hauteur avant largeur), Lieu de conservation, Ville, Collection, numéro d’acquisition de musée le cas échéant, ©. Photographe ousociétédegestionsdedroits(commeADAGP)©.ADAGP.
+
+Exemple d’image d’oeuvre d’art libre de droit sous licence ouverte
+Vassily Kandinsky, (1866, Empire Russe - 1944, France) Trapez (Trapèze), 1930, Aquarelle pulvérisée, gouache et vernis sur carton, 14,5 x 18,6 cm, Musée National d’art moderne, Centre Georges Pompidou, Paris, Legs de Nina Kandinsky, 1981, numéro d’inventaire : AM 81-65-139, crédits. Domaine public. © Service de la documentation photographique du MNAM-CCI. Dist RMN-GP

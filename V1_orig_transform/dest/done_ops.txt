@@ -1,0 +1,6 @@
+found deleted lines
+added dropdown,price to columns where it was empty
+checked optionvalue length>50, found 0
+removed deleted lines by alessia
+checked 'optionName' and 'additionalInfoTitle' coherence
+checked 'visible' values

@@ -1,0 +1,270 @@
+{
+    "job": {
+        "id": "197b079e-2bf0-42c7-b20f-4f88864d4484",
+        "data": {
+            "query": {
+                "filter": {
+                    "productType": {
+                        "$eq": "physical"
+                    }
+                },
+                "sort": [],
+                "fields": [],
+                "fieldsets": [],
+                "cursorPaging": {
+                    "limit": 100
+                }
+            },
+            "fields": [
+                {
+                    "id": "handle_id",
+                    "header": "handleId"
+                },
+                {
+                    "id": "item_type",
+                    "header": "fieldType"
+                },
+                {
+                    "id": "product.name",
+                    "header": "name"
+                },
+                {
+                    "id": "product.description",
+                    "header": "description"
+                },
+                {
+                    "id": "product.media.items.*.id",
+                    "header": "productImageUrl"
+                },
+                {
+                    "id": "collection_names.*",
+                    "header": "collection"
+                },
+                {
+                    "id": "sku",
+                    "header": "sku"
+                },
+                {
+                    "id": "product.ribbon",
+                    "header": "ribbon"
+                },
+                {
+                    "id": "product.priceData.price.value",
+                    "header": "price"
+                },
+                {
+                    "id": "surcharge",
+                    "header": "surcharge"
+                },
+                {
+                    "id": "visible",
+                    "header": "visible"
+                },
+                {
+                    "id": "product.discount.type",
+                    "header": "discountMode"
+                },
+                {
+                    "id": "product.discount.value",
+                    "header": "discountValue"
+                },
+                {
+                    "id": "inventory",
+                    "header": "inventory"
+                },
+                {
+                    "id": "weight",
+                    "header": "weight"
+                },
+                {
+                    "id": "cost",
+                    "header": "cost"
+                },
+                {
+                    "id": "options.0.name",
+                    "header": "productOptionName1"
+                },
+                {
+                    "id": "options.0.option_type",
+                    "header": "productOptionType1"
+                },
+                {
+                    "id": "options.0.descriptions.*",
+                    "header": "productOptionDescription1"
+                },
+                {
+                    "id": "options.1.name",
+                    "header": "productOptionName2"
+                },
+                {
+                    "id": "options.1.option_type",
+                    "header": "productOptionType2"
+                },
+                {
+                    "id": "options.1.descriptions.*",
+                    "header": "productOptionDescription2"
+                },
+                {
+                    "id": "options.2.name",
+                    "header": "productOptionName3"
+                },
+                {
+                    "id": "options.2.option_type",
+                    "header": "productOptionType3"
+                },
+                {
+                    "id": "options.2.descriptions.*",
+                    "header": "productOptionDescription3"
+                },
+                {
+                    "id": "options.3.name",
+                    "header": "productOptionName4"
+                },
+                {
+                    "id": "options.3.option_type",
+                    "header": "productOptionType4"
+                },
+                {
+                    "id": "options.3.descriptions.*",
+                    "header": "productOptionDescription4"
+                },
+                {
+                    "id": "options.4.name",
+                    "header": "productOptionName5"
+                },
+                {
+                    "id": "options.4.option_type",
+                    "header": "productOptionType5"
+                },
+                {
+                    "id": "options.4.descriptions.*",
+                    "header": "productOptionDescription5"
+                },
+                {
+                    "id": "options.5.name",
+                    "header": "productOptionName6"
+                },
+                {
+                    "id": "options.5.option_type",
+                    "header": "productOptionType6"
+                },
+                {
+                    "id": "options.5.descriptions.*",
+                    "header": "productOptionDescription6"
+                },
+                {
+                    "id": "product.additional_info_sections.0.title",
+                    "header": "additionalInfoTitle1"
+                },
+                {
+                    "id": "product.additional_info_sections.0.description",
+                    "header": "additionalInfoDescription1"
+                },
+                {
+                    "id": "product.additional_info_sections.1.title",
+                    "header": "additionalInfoTitle2"
+                },
+                {
+                    "id": "product.additional_info_sections.1.description",
+                    "header": "additionalInfoDescription2"
+                },
+                {
+                    "id": "product.additional_info_sections.2.title",
+                    "header": "additionalInfoTitle3"
+                },
+                {
+                    "id": "product.additional_info_sections.2.description",
+                    "header": "additionalInfoDescription3"
+                },
+                {
+                    "id": "product.additional_info_sections.3.title",
+                    "header": "additionalInfoTitle4"
+                },
+                {
+                    "id": "product.additional_info_sections.3.description",
+                    "header": "additionalInfoDescription4"
+                },
+                {
+                    "id": "product.additional_info_sections.4.title",
+                    "header": "additionalInfoTitle5"
+                },
+                {
+                    "id": "product.additional_info_sections.4.description",
+                    "header": "additionalInfoDescription5"
+                },
+                {
+                    "id": "product.additional_info_sections.5.title",
+                    "header": "additionalInfoTitle6"
+                },
+                {
+                    "id": "product.additional_info_sections.5.description",
+                    "header": "additionalInfoDescription6"
+                },
+                {
+                    "id": "product.additional_info_sections.6.description",
+                    "header": "additionalInfoDescription7"
+                },
+                {
+                    "id": "product.additional_info_sections.7.description",
+                    "header": "additionalInfoDescription8"
+                },
+                {
+                    "id": "product.additional_info_sections.8.description",
+                    "header": "additionalInfoDescription9"
+                },
+                {
+                    "id": "product.custom_text_fields.0.title",
+                    "header": "customTextField1"
+                },
+                {
+                    "id": "product.custom_text_fields.0.max_length",
+                    "header": "customTextCharLimit1"
+                },
+                {
+                    "id": "product.custom_text_fields.0.mandatory",
+                    "header": "customTextMandatory1"
+                },
+                {
+                    "id": "product.custom_text_fields.1.title",
+                    "header": "customTextField2"
+                },
+                {
+                    "id": "product.custom_text_fields.1.max_length",
+                    "header": "customTextCharLimit2"
+                },
+                {
+                    "id": "product.custom_text_fields.1.mandatory",
+                    "header": "customTextMandatory2"
+                },
+                {
+                    "id": "product.brand",
+                    "header": "brand"
+                }
+            ],
+            "arrayFieldDelimiter": "SEMICOLON",
+            "methodMetadata": {
+                "artifact": "com.wixpress.stores.product-or-variant",
+                "service": "ProductOrVariantService",
+                "method": "QueryProductsOrVariants"
+            },
+            "methodSpec": {
+                "requestQueryFieldNumber": "DEFAULT"
+            },
+            "userId": "4934dab5-7fce-46f3-8439-5e03698e13f7",
+            "subDir": "msid/f2c5ef0e-f559-4e93-b364-f3a9a65accbb",
+            "format": "csv",
+            "uploadId": "",
+            "saveAs": "catalog_products",
+            "pagingMetadata": {},
+            "iterationsCount": 1,
+            "processedItemsCount": 0,
+            "resetCount": 0,
+            "signedUrl": "",
+            "error": {
+                "tracing": {}
+            },
+            "testParams": {}
+        },
+        "status": "INITIALIZED"
+    }
+}
