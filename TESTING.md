@@ -1,5 +1,9 @@
 # Testing
 
+> **Repository archived 2026-10-19** (obsolete). Last changes before archiving: Flask debug mode off,
+> `request/.env` (Wix credentials) removed from the tree. It remains in git history: the Wix API key and
+> session it held must be revoked on Wix's side.
+
 ## What is deployed
 
 Only **`V_citations/`** (image `ghcr.io/pazka/wixtocitations`, https://wixcitations.hosh.it): a Flask page
@@ -51,8 +55,7 @@ non-CSV, logs no traceback.
 
 ## Known gaps (pinned, not changed)
 
-- **`main.py` runs Flask with `debug=True` on 0.0.0.0 in production** (`CMD python main.py`): the Werkzeug
-  debugger is enabled on the public service. Highest-priority fix for the owner.
+- Flask debug mode: was on in production (`debug=True`); now only with `FLASK_DEBUG=1`. The smoke checks it.
 - `requirements.txt` is **unpinned**: every image build takes the latest pandas/numpy/Flask/python-docx.
   The CI matrix catches breakage at build time, but builds are not reproducible and Dependabot cannot
   propose bumps. Pinning (with a lock per base Python) is the recommended next step.
@@ -60,4 +63,4 @@ non-CSV, logs no traceback.
   between concurrent users; image runs as root; no read-only rootfs; no HEALTHCHECK).
 - `upload_file`: the "file not found" branch prints an undefined `e` (would turn a 404 into a 500).
 - The friendly "Keys [...] not found" message is never reached for a missing `collection` column.
-- `request/.env` is tracked in git (not read by this work): rotate whatever it held and remove it.
+- `request/.env` held a Wix `AUTHORIZATION` token and session `COOKIE`; removed from the tree, still in history.
