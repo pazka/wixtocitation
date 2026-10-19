@@ -52,4 +52,5 @@ def send_index():
 PORT = os.environ.get("PORT") or 6451
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=PORT, debug=True)
+    # debug=True enabled the Werkzeug debugger on the public service; opt in locally with FLASK_DEBUG=1.
+    app.run(host="0.0.0.0", port=PORT, debug=os.environ.get("FLASK_DEBUG") == "1")

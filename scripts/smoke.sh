@@ -58,6 +58,9 @@ step "non-CSV rejected"
 echo hello >note.txt
 code 400 -F "export=@note.txt;type=text/plain" "$BASE/upload"
 
+step "debugger off"
+if dk logs "$NAME" 2>&1 | grep -E "Debugger is active|Debug mode: on"; then fail "Flask debug mode is on"; fi
+
 step "no tracebacks in logs"
 if dk logs "$NAME" 2>&1 | grep -E 'Traceback'; then fail "traceback in container log"; fi
 
