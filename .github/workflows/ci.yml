@@ -1,0 +1,41 @@
+name: ci
+# Upgrade safety net for V_citations (see TESTING.md). Builds the image on the current base AND on the
+# next Python alpine, runs the tests inside each image (musl wheels can disappear on a new Python),
+# then smokes the container. Nothing is pushed. Runs on PRs, main and agent/** branches.
+on:
+  pull_request:
+  push:
+    branches: [main, 'agent/**']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  citations:
+    name: V_citations (${{ matrix.base }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # "current" = V_citations/Dockerfile as committed; the other entry rebuilds it on that base.
+        base: [current, python:3.14-alpine]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: build image
+        run: |
+          set -euo pipefail
+          if [ "${{ matrix.base }}" = current ]; then
+            docker build -t citations:ci V_citations
+          else
+            sed -E "s#^FROM python:[^ ]+#FROM ${{ matrix.base }}#" V_citations/Dockerfile \
+              | docker build -t citations:ci -f - V_citations
+          fi
+          docker run --rm citations:ci sh -c 'python -V; pip list 2>/dev/null | grep -iE "^(pandas|numpy|flask|python-docx|openpyxl) "'
+      - name: unit tests inside the image
+        run: |
+          docker run --rm -e PYTHONDONTWRITEBYTECODE=1 -v "$PWD/V_citations:/src:ro" citations:ci \
+            sh -c 'mkdir /w && cp -r /src/. /w/ && cd /w && python -m unittest discover -s tests -v'
+      - name: container smoke
+        run: bash scripts/smoke.sh citations:ci
